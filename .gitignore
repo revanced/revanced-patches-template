@@ -1,3 +1,7 @@
+patched.keystore
+patched-temporary-files
+patches/bin/main/extensions/extension.rve
+
 ### Java template
 # Compiled class file
 *.class
