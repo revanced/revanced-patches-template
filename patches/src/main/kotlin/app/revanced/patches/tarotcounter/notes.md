@@ -9,6 +9,7 @@ openAdUnit
 noAdsCodes
 consumePurchase
 cell_remove_ads_purchase
+adbanner
 
 ### Classes
 
