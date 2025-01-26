@@ -11,9 +11,9 @@ import app.revanced.patcher.patch.BytecodePatchContext
 import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patches.shared.misc.mapping.get
-import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
-import app.revanced.patches.shared.misc.mapping.resourceMappings
+// import app.revanced.patches.shared.misc.mapping.get
+// import app.revanced.patches.shared.misc.mapping.resourceMappingPatch
+// import app.revanced.patches.shared.misc.mapping.resourceMappings
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.Method
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
@@ -93,37 +93,36 @@ internal fun MutableMethod.addInstructionsAtControlFlowLabel(
     // and the original control flow label is on the first instruction of the patch code.
 }
 
-/**
- * Get the index of the first instruction with the id of the given resource id name.
- *
- * Requires [resourceMappingPatch] as a dependency.
- *
- * @param resourceName the name of the resource to find the id for.
- * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
- * @throws PatchException if the resource cannot be found.
- * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
- */
-fun Method.indexOfFirstResourceId(resourceName: String): Int {
-    val resourceId = resourceMappings["id", resourceName]
-    return indexOfFirstLiteralInstruction(resourceId)
-}
+// /**
+//  * Get the index of the first instruction with the id of the given resource id name.
+//  *
+//  * Requires [resourceMappingPatch] as a dependency.
+//  *
+//  * @param resourceName the name of the resource to find the id for.
+//  * @return the index of the first instruction with the id of the given resource name, or -1 if not found.
+//  * @throws PatchException if the resource cannot be found.
+//  * @see [indexOfFirstResourceIdOrThrow], [indexOfFirstLiteralInstructionReversed]
+//  */
+// fun Method.indexOfFirstResourceId(resourceName: String): Int {
+//     val resourceId = resourceMappings["id", resourceName]
+//     return indexOfFirstLiteralInstruction(resourceId)
+// }
 
-/**
- * Get the index of the first instruction with the id of the given resource name or throw a [PatchException].
- *
- * Requires [resourceMappingPatch] as a dependency.
- *
- * @throws [PatchException] if the resource is not found, or the method does not contain the resource id literal value.
- * @see [indexOfFirstResourceId], [indexOfFirstLiteralInstructionReversedOrThrow]
- */
-fun Method.indexOfFirstResourceIdOrThrow(resourceName: String): Int {
-    val index = indexOfFirstResourceId(resourceName)
-    if (index < 0) {
-        throw PatchException("Found resource id for: '$resourceName' but method does not contain the id: $this")
-    }
-
-    return index
-}
+// /**
+//  * Get the index of the first instruction with the id of the given resource name or throw a [PatchException].
+//  *
+//  * Requires [resourceMappingPatch] as a dependency.
+//  *
+//  * @throws [PatchException] if the resource is not found, or the method does not contain the resource id literal value.
+//  * @see [indexOfFirstResourceId], [indexOfFirstLiteralInstructionReversedOrThrow]
+//  */
+// fun Method.indexOfFirstResourceIdOrThrow(resourceName: String): Int {
+//     val index = indexOfFirstResourceId(resourceName)
+//     if (index < 0) {
+//         throw PatchException("Found resource id for: '$resourceName' but method does not contain the id: $this")
+//     }
+//     return index
+// }
 
 /**
  * Find the index of the first literal instruction with the given value.
