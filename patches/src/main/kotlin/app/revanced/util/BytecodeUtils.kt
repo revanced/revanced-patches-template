@@ -463,8 +463,22 @@ fun MutableMethod.returnEarly(bool: Boolean = false) {
     addInstructions(0, stringInstructions)
 }
 
+/**
+ * Return the method early with a string value.
+ */
+fun MutableMethod.returnEarlyString(value: String = "") {
+    val stringInstructions = when (returnType.first()) {
+        'L' -> 
+            """
+                const-string v0, "$value"
+                return-object v0
+            """
 
+        else -> throw Exception("Only string return types ('L') are supported for returnEarlyString.")
+    }
 
+    addInstructions(0, stringInstructions)
+}
 
 /**
  * Set the custom condition for this fingerprint to check for a literal value.
