@@ -9,7 +9,7 @@ public class LoggerPatch {
         Log.d("LoggerPatch", "Hello from Logger");
     }
 
-    public static Request printAndModifyUrl(Request request) {
+    public static Request printAndModifyUrl(Request request, String proxyHost) {
         // Log the original request
         Log.d("LoggerPatch", "Original request: " + request.toString());
     
@@ -23,7 +23,7 @@ public class LoggerPatch {
         // Construct the new URL
         HttpUrl modifiedUrl = new HttpUrl.Builder()
                 .scheme("https")
-                .host("proxy.lol")
+                .host(proxyHost)
                 .encodedPath("/" + originalHost + originalPath)
                 .build();
     
