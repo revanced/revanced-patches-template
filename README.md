@@ -66,7 +66,8 @@ This repository holds my custom patches for apps that I use. It takes advantage 
 
 Here is the list of modded apps that I have created patches for:
 
-- [French Tarot Counter](https://play.google.com/store/apps/details?id=net.aasuited.tarotscore) - A simple counter for the French Tarot card game. Patched to remove ads.
+- [French Tarot Score Counter](https://play.google.com/store/apps/details?id=net.aasuited.tarotscore) - A point counter for the French Tarot card game. Patched to remove ads.
+- [Score Counter](https://play.google.com/store/apps/details?id=net.aasuited.universalscoretracker) - A simple point counter for any game. Patched to remove ads.
 
 I *might* be distributing patched APKs on a private fdroid repository for friends, schoolmates, and family members. Feel free to ask if you know me and that would be convenient for you.
 

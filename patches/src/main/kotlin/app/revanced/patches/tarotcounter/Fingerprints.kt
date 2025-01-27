@@ -1,4 +1,4 @@
-package app.revanced.patches.example
+package app.revanced.patches.tarotcounter
 
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags

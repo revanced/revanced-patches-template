@@ -21,6 +21,7 @@ apktool d -o output app.apk
 Download jadx : https://github.com/skylot/jadx/releases
 
 ```bash
+export JAVA_OPTS="-Xmx8G -Xms512m"
 ./jadx/bin/jadx -d output app.apk
 ```
 

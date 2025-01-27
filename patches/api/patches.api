@@ -1,5 +1,9 @@
-public final class app/revanced/patches/example/AdsPatchKt {
-	public static final fun getExamplePatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+public final class app/revanced/patches/scorecounter/AdsPatchKt {
+	public static final fun getAdsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
+}
+
+public final class app/revanced/patches/tarotcounter/AdsPatchKt {
+	public static final fun getAdsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
 
 public final class app/revanced/util/BytecodeUtilsKt {

@@ -1,4 +1,4 @@
-package app.revanced.patches.tarotcounter
+package app.revanced.patches.scorecounter
 
 import app.revanced.patcher.patch.bytecodePatch
 import app.revanced.patcher.patch.resourcePatch
@@ -7,12 +7,14 @@ import app.revanced.patcher.fingerprint
 import app.revanced.util.returnEarlyString
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.AccessFlags
+import app.revanced.patches.tarotcounter.bannerAdUnitFingerprint
+import app.revanced.patches.tarotcounter.openAdUnitFingerprint
 
 @Suppress("unused")
 val adsPatch = resourcePatch(
     name = "Remove ads",
 ) {
-    compatibleWith("net.aasuited.tarotscore"("3.8.2"));
+    compatibleWith("net.aasuited.universalscoretracker"("2.14.6"));
 
     dependsOn(
         bytecodePatch {
@@ -27,8 +29,6 @@ val adsPatch = resourcePatch(
         val layoutFiles = listOf(
             "res/layout/activity_player_statistics_with_player_header.xml",
             "res/layout/activity_score_board.xml",
-            "res/layout/activity_player_statistics_with_player_header.xml",
-            "res/layout/activity_score_board.xml"
         )
 
         layoutFiles.forEach { filePath ->
