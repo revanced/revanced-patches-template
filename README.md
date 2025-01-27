@@ -58,63 +58,19 @@
    Continuing the legacy of Vanced
 </p>
 
-# 👋🧩 ReVanced Patches template
+# 👋🧩 Mubelotix's ReVanced Patches
 
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ReVanced/revanced-patches-template/release.yml)
-![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)
+This repository holds my custom patches for apps that I use. It takes advantage of the amazing modding framework that is [ReVanced](https://github.com/ReVanced).
 
-Template repository for ReVanced Patches.
+## 📚 Supported Apps
 
-## ❓ About
+Here is the list of modded apps that I have created patches for:
 
-This is a template to create a new ReVanced Patches repository.  
-The repository can have multiple patches, and patches from other repositories can be used together.
+- [French Tarot Counter](https://play.google.com/store/apps/details?id=net.aasuited.tarotscore) - A simple counter for the French Tarot card game. Patched to remove ads.
 
-For an example repository, see [ReVanced Patches](https://github.com/revanced/revanced-patches).
+I *might* be distributing patched APKs on a private fdroid repository for friends, schoolmates, and family members. Feel free to ask if you know me and that would be convenient for you.
 
-## 🚀 Get started
-
-To start using this template, follow these steps:
-
-1. [Create a new repository using this template](https://github.com/new?template_name=revanced-patches-template&template_owner=ReVanced)
-2. Set up the [build.gradle.kts](patches/build.gradle.kts) file (Specifically, the [group of the project](patches/build.gradle.kts#L1),
-and the [About](patches/build.gradle.kts#L5-L11))
-3. Update dependencies in the [libs.versions.toml](gradle/libs.versions.toml) file
-4. [Create a pass-phrased GPG master key and subkey](https://mikeross.xyz/create-gpg-key-pair-with-subkeys/)
-   1. Add the private key as a secret named [GPG_PRIVATE_KEY](.github/workflows/release.yml#L52) to your repository
-   2. Add the passphrase as a secret named [GPG_PASSPHRASE](.github/workflows/release.yml#L53) to your repository
-   3. Add the fingerprint of the GPG subkey as a secret named [GPG_FINGERPRINT](.github/workflows/release.yml#L54) to your repository
-5. Set up the [README.md](README.md) file[^1] (e.g, title, description, license, summary of the patches
-that are included in the repository), the [issue templates](.github/ISSUE_TEMPLATE)[^2]  and the [contribution guidelines](CONTRIBUTING.md)[^3]
-
-🎉 You are now ready to start creating patches!
-
-[^1]: [Example README.md file](https://github.com/ReVanced/revanced-patches/blob/main/README.md)
-[^2]: [Example issue templates](https://github.com/ReVanced/revanced-patches/tree/main/.github/ISSUE_TEMPLATE)
-[^3]: [Example contribution guidelines](https://github.com/ReVanced/revanced-patches/blob/main/CONTRIBUTING.md)
-
-## 🔘 Optional steps
-
-You can also add the following things to the repository:
-
-- API documentation, if you want to publish your patches as a library
-
-## 🧑‍💻 Usage
-
-To develop and release ReVanced Patches using this template, some things need to be considered:
-
-- Development starts in feature branches. Once a feature branch is ready, it is squashed and merged into the `dev` branch
-- The `dev` branch is merged into the `main` branch once it is ready for release
-- Semantic versioning is used to version ReVanced Patches. ReVanced Patches have a public API for other patches to use
-- Semantic commit messages are used for commits
-- Commits on the `dev` branch and `main` branch are automatically released
-via the [release.yml](.github/workflows/release.yml) workflow, which is also responsible for generating the changelog
-and updating the version of ReVanced Patches. It is triggered by pushing to the `dev` or `main` branch.
-The workflow uses the `publish` task to publish the release of ReVanced Patches
-- The `buildAndroid` task is used to build ReVanced Patches so that it can be used on Android.
-The `publish` task depends on the `buildAndroid` task, so it will be run automatically when publishing a release.
-
-## 📚 Everything else
+## ❓ Everything else
 
 ### 📙 Contributing
 
