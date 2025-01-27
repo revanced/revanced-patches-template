@@ -1,3 +1,7 @@
+plugins {
+    id("kotlin-android")
+}
+
 extension {
     name = "extensions/extension.rve"
 }

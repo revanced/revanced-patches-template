@@ -1,3 +1,7 @@
+public final class app/revanced/patches/reddit/ProxyPatchKt {
+	public static final fun getProxyPatch ()Lapp/revanced/patcher/patch/BytecodePatch;
+}
+
 public final class app/revanced/patches/scorecounter/AdsPatchKt {
 	public static final fun getAdsPatch ()Lapp/revanced/patcher/patch/ResourcePatch;
 }
