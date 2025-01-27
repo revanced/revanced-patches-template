@@ -22,7 +22,7 @@ val proxyPatch = bytecodePatch(
 
 
         httpClientNewCallFingerprint.method.addInstructions(0, """
-            invoke-static {}, Lapp/revanced/extension/LoggerPatch;->log()V
+            invoke-static {p1}, Lapp/revanced/extension/LoggerPatch;->printUrl(Lokhttp3/Request;)V
         """)
     }
 }
