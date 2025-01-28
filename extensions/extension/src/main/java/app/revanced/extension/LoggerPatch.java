@@ -9,7 +9,7 @@ public class LoggerPatch {
         Log.d("LoggerPatch", "Hello from Logger");
     }
 
-    public static Request printAndModifyUrl(Request request, String proxyHost) {
+    public static Request printAndModifyUrl(Request request, String proxyHost, String proxyCookies) {
         // Log the original request
         Log.d("LoggerPatch", "Original request: " + request.toString());
     
@@ -26,11 +26,22 @@ public class LoggerPatch {
                 .host(proxyHost)
                 .encodedPath("/" + originalHost + originalPath)
                 .build();
-    
-        // Create a new Request with the modified URL
-        Request modifiedRequest = request.newBuilder()
-                .url(modifiedUrl)
-                .build();
+        
+        // Start building the modified Request
+        Request.Builder modifiedRequestBuilder = request.newBuilder()
+                .url(modifiedUrl);
+
+        // Handle cookies
+        if (proxyCookies != null && !proxyCookies.isEmpty()) {
+            String existingCookies = request.header("Cookie");
+            String combinedCookies = existingCookies != null 
+                    ? existingCookies + "; " + proxyCookies 
+                    : proxyCookies;
+            modifiedRequestBuilder.header("Cookie", combinedCookies);
+        }
+
+        // Build the modified Request
+        Request modifiedRequest = modifiedRequestBuilder.build();
     
         // Log the modified request
         Log.d("LoggerPatch", "Modified request: " + modifiedRequest.toString());

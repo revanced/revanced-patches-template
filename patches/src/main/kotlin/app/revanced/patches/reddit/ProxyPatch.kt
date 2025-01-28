@@ -18,13 +18,13 @@ val proxyPatch = bytecodePatch(
     extendWith("extensions/extension.rve")
 
     val proxyHost = stringOption(key = "proxyHost", required = true);
+    val proxyCookies = stringOption(key = "proxyCookies");
 
     execute {
-        println(httpClientNewCallFingerprint.method);
-
         httpClientNewCallFingerprint.method.addInstructions(0, """
             const-string v0, "${proxyHost.value}"
-            invoke-static {p1, v0}, Lapp/revanced/extension/LoggerPatch;->printAndModifyUrl(Lokhttp3/Request;Ljava/lang/String;)Lokhttp3/Request;
+            const-string v1, "${proxyCookies.value ?: ""}"
+            invoke-static {p1, v0, v1}, Lapp/revanced/extension/LoggerPatch;->printAndModifyUrl(Lokhttp3/Request;Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request;
 
             move-result-object p1
         """)
