@@ -3,6 +3,7 @@ package app.revanced.extension;
 import android.util.Log;
 import okhttp3.Request;
 import okhttp3.HttpUrl;
+import okhttp3.RequestBody;
 
 public class LoggerPatch {
     public static void log() {
@@ -11,7 +12,7 @@ public class LoggerPatch {
 
     public static Request printAndModifyUrl(Request request, String proxyHost, String proxyCookies) {
         // Log the original request
-        Log.d("LoggerPatch", "Original request: " + request.toString());
+        // Log.d("LoggerPatch", "Original request: " + request.toString());
     
         // Extract the original URL
         HttpUrl originalUrl = request.url();
@@ -26,10 +27,17 @@ public class LoggerPatch {
                 .host(proxyHost)
                 .encodedPath("/" + originalHost + originalPath)
                 .build();
+
+        // Extract the original request body
+        RequestBody originalBody = request.body();
         
         // Start building the modified Request
         Request.Builder modifiedRequestBuilder = request.newBuilder()
                 .url(modifiedUrl);
+
+        if (originalBody != null) {
+            modifiedRequestBuilder.method(request.method(), originalBody);
+        }
 
         // Handle cookies
         if (proxyCookies != null && !proxyCookies.isEmpty()) {
@@ -44,7 +52,7 @@ public class LoggerPatch {
         Request modifiedRequest = modifiedRequestBuilder.build();
     
         // Log the modified request
-        Log.d("LoggerPatch", "Modified request: " + modifiedRequest.toString());
+        // Log.d("LoggerPatch", "Modified request: " + modifiedRequest.toString());
     
         // Return the modified Request
         return modifiedRequest;
