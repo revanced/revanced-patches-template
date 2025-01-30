@@ -66,6 +66,7 @@ This repository holds my custom patches for apps that I use. It takes advantage 
 
 Here is the list of modded apps that I have created patches for:
 
+- [Reddit](https://play.google.com/store/apps/details?id=com.reddit.frontpage) - The official Reddit app turned into a Lemmy client. Also see the [reddit-to-lemmy compatibility layer](https://github.com/Mubelotix/reddit-to-lemmy).
 - [French Tarot Score Counter](https://play.google.com/store/apps/details?id=net.aasuited.tarotscore) - A point counter for the French Tarot card game. Patched to remove ads.
 - [Score Counter](https://play.google.com/store/apps/details?id=net.aasuited.universalscoretracker) - A simple point counter for any game. Patched to remove ads.
 
